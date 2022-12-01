@@ -1,0 +1,95 @@
+\documentclass[8pt]{article}
+\usepackage{amsmath}
+\usepackage{mathbbol}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amscd}
+\usepackage{latexsym}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{blindtext}
+
+\usepackage[a4paper, total={10cm, 26cm}]{geometry}
+
+
+% Info
+\title{Solucionario de Estadística}
+\author{Jorge Antonio Gómez García}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\tableofcontents
+
+\section{Demostraciones}
+
+    \subsection{Función binomial}
+    
+    \subsubsection{Función generadora de momentos}
+
+    \textit{D!}
+    
+    \begin{align*}
+        m(t) &:= E[e^{tX}] \\
+            &= \sum^n_{k=0}\binom{n}{k}p^kq^{n-k}e^{kt} \\
+            &= \sum^n_{k=0}\binom{n}{k}(pe^t)^kq^{n-k} \\
+            &= (q+pe^t)^n
+    \end{align*}\qed
+
+    Recuerde que $q = (1-p)$:
+    
+    \begin{align*}
+        m(t) = (1-p+pe^t)^n, \,\,\,\, t\in\mathbb{R}
+    \end{align*}
+
+    
+    
+    \subsubsection{Esperanza}
+    
+    \textit{D!}
+    
+    \begin{align*}
+        E[X] &= \sum^n_{k=0} k\binom{n}{k}p^kq^{n-k} \\
+            &= \sum^n_{k=0} \dfrac{n!}{k!(n-k)!} p^kq^{n-k} \\
+            &= \sum^n_{k=1}\dfrac{n(n-1)!}{(k-1)!(n-k)!}p^kq^{n-k}  \\
+            &= np \sum^n_{k=1} \binom{n-1}{k-1}p^{k-1}q^{n-k} \\
+            &= np \sum^{n-1}_{m=0} \binom{n-1}{m} p^{m}q^{n-1-m} \\
+            &= np(p+q)^{n-1} \\
+            &= np
+    \end{align*}\qed
+
+    
+    
+    \subsubsection{Varianza}
+
+    \begin{flalign*}
+        E[X^2] &= \sum^{n}_{k=0} k^2\binom{n}{k}p^kq^{n-k} \\
+            &= \sum^{n}_{k=0} \dfrac{n!}{k!(n-k)!} p^kq^{n-k} \\
+            &= \sum^{n}_{k=1}\dfrac{n(n-1)!}{(k-1)!(n-k)!}p^kq^{n-k} \\
+            &= np \sum^{n}_{k=1} \binom{n-1}{k-1}p^{k-1}q^{n-k} \\
+            &= np \sum^{n-1}_{m=0} \binom{n-1}{m} p^{m}q^{n-1-m} \\
+            &= np(p+q)^{n-1} \\
+            &= np
+    \end{flalign*}
+
+    \begin{flalign*}
+        Var(X) &:= E[X^2] - (E[X])^2 \\
+                &= n(n-1)p^2 + np - (np)^2 \\
+                &= npq
+    \end{flalign*}
+
+        
+\subsection{Función poisson}
+        
+    \subsubsection{Función generadora de momentos}
+    
+    \begin{flalign*}
+        m(t) &:= E[e^{tX}] \\
+            &=   \\
+            &=   \\
+            &= e^{\lambda(e^t-1)}
+    \end{flalign*}
+
+\end{document}

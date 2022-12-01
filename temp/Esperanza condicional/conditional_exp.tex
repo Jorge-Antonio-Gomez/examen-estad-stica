@@ -1,0 +1,62 @@
+\documentclass[8pt]{article}
+\usepackage{amsmath}
+\usepackage{mathbbol}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amscd}
+\usepackage{latexsym}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{blindtext}
+\usepackage{cancel}
+\usepackage{xcolor}
+\usepackage[a4paper, total={14cm, 26cm}]{geometry}
+\renewcommand{\contentsname}{Contenido}
+\newcommand{\Cancel}[2][black]{{\color{#1}\cancel{\color{black}#2}}} %\Cancel[red]{x}
+
+% info
+\title{Esperanza condicional}
+\author{Jorge Antonio Gómez García}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section{Esperanza condicional}
+
+Demuestre que $\text{E}[\text{E}[Y_1|Y_2]] = E[Y_1]$.
+
+\paragraph{Caso discreto. D!} Sea $Y_1$ y $Y_2$ variables aleatorias, entonces:
+
+\begin{align*}
+    \text{E}[\text{E}[Y_1|Y_2]] &= \sum_{y_2} \underbrace{\text{E}[Y_1|Y_2]}_{\sum_{y_1} y_1 \cdot p(y_1|y_2)} \cdot p_2(y_2) \\
+    &= \sum_{y_2} \left[ \sum_{y_1} y_1 \cdot p(y_1|y_2) \right] \cdot p_2(y_2) \\
+    &= \sum_{y_2} \sum_{y_1} y_1 \cdot p(y_1|y_2) \cdot p_2(y_2) \\
+    &= \sum_{y_1} \sum_{y_2} y_1 \cdot \frac{p(y_1,y_2)}{\Cancel[red]{p_2(y_2)}} \cdot \Cancel[red]{p_2(y_2)} \\
+    &= \sum_{y_1} y_1 \cdot \sum_{y_2} p(y_1,y_2) \\
+    &= \sum_{y_1} y_1 \cdot p(y_1) \\
+    &= E[Y_1]
+\end{align*}
+
+\section{Ejercicio 5.139}
+
+\subsection{Inciso a)} ¿$\text{E}[T|N=n]$?
+
+\begin{align*}
+    \text{E}[T|N=n] &= \text{E}\left[\sum_{k=1}
+\end{align*}
+
+\begin{align*}
+
+\end{align*}
+
+\subsection{Inciso b)} $\text{E}[T]$, ¿El tiempo total esperado para completar todos los trabajos?
+
+\begin{align*}
+    \text{E}[T] &= \text{E}[\text{E}[T|N]] \\
+    &= \text{E}[N\frac{\alpha}{\beta}] \\
+    &= \lambda \frac{\alpha}{\beta} \\
+\end{align*}
+
+\end{document}

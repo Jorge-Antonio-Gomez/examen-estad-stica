@@ -1,0 +1,3 @@
+\contentsline {section}{\numberline {1}Paridad de tasas de interés}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Caso general}{1}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Modelo de economía pequeña y abierta con dinero}{2}{subsection.1.2}%

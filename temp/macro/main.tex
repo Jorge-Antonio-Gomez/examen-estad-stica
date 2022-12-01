@@ -1,0 +1,158 @@
+\documentclass[8pt]{article}
+
+\usepackage{amsmath}
+\usepackage{mathbbol}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amscd}
+\usepackage{latexsym}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{blindtext}
+\usepackage[a4paper, total={10cm, 26cm}]{geometry}
+
+% Info
+\title{Macroeconomía: Tasas de inteés}
+\author{Jorge Antonio Gómez García}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\section{Paridad de tasas de interés}
+
+\paragraph*{Ejemplo:} Un bono en dólares a 1 año paga una tasa de interés de $5\%$ anual. Un bono similar en pesos paga una tasa de interés de $10\%$ anual.
+
+\paragraph*{Suponga:}
+
+\begin{itemize}
+    \item $E_0$ : El tipo de cambio es $1\text{ dólar} = \$19.5\text{ pesos}$
+    \item $E_1$ : El tipo de cambio es $1\text{ dólar} = \$21\text{ pesos}$
+\end{itemize}
+
+\paragraph*{¿Qué activo debo adquirir?} Note que un dólar hoy se convierte en $1.05$ en un año.
+
+\paragraph*{Para transformar la tasa de retorno a pesos:}
+
+\begin{align*}
+    \dfrac{\$1.05 \times \$21 - \$19.5}{\$19.5} = 0.131
+\end{align*}
+
+\paragraph*{Así, el bono en dólares obtiene un mayor rendimiento.}
+
+\subsection{Caso general}
+
+\paragraph*{Sea:}
+
+\begin{itemize}
+    \item $i_t$ : Tasa nominal del bono en pesos.
+    \item $i_t^*$ : Tasa nominal del bono en dólares.
+    \item $E_t$ : Tipo de cambio nominal en el tiempo $t$.
+\end{itemize}
+
+\begin{align*}
+    i_t \,\,\, &\text{VS.} \,\,\, \dfrac{(1 + i_t^*) \times E_{t+1} - E_{t}}{E_{t}} \\\\
+    1+i_t \,\,\, &\text{VS.} \,\,\, (1+i_t^*)\left(\dfrac{E_{t+1}}{E_{t}}\right)
+\end{align*}
+
+Dónde: $\dfrac{E_{t+1}}{E_{t}}$ es la tasa de depreciación.
+
+\paragraph*{a) Suponga:}
+
+$1+i_t > (1+i_t^*)\left(\dfrac{E_{t+1}}{E_{t}}\right)$ \\\\
+$\rightarrow$ Incentiva a demandar pesos. $\rightarrow$ El peso se aprecia (encarece o fortalece). ($E_{t}\downarrow$) \\\\
+$\rightarrow$ $\dfrac{E_{t+1}}{E_{t}} \uparrow$, dado $E_{t+1} \downarrow$ \\\\
+    Debido a que hay condición de no arbitraje, $E_{t} \downarrow$. $\rightarrow$ \\\\
+    \begin{align*}
+        1+i_{t} = (1+i_{t}^*)\left(\dfrac{E_{t+1}}{E_{t}}\right)
+    \end{align*}
+
+\paragraph*{b) Suponga:}
+
+$1+i_t < (1+i_t^*)\left(\dfrac{E_{t+1}}{E_{t}}\right)$ \\\\
+$\rightarrow$ Incentiva a demandar dólares. $\rightarrow$ El dólar se aprecia (encarece o fortalece). El peso se "bebilita", $E_{t}\uparrow \,\, \rightarrow \dfrac{E_{t+1}}{E_{t}} \downarrow$, dado $E_{t+1}$.
+
+\paragraph*{Por condición de no arbitraje:} $E_{t} \uparrow$ tal que: 
+
+\begin{align}
+    \label{eq:1}
+    1+i_{t} = (1+i_{t}^*)\left(\dfrac{E_{t+1}}{E_{t}}\right)
+\end{align}
+
+(1) es la paridad de tasas de interés. \\
+    Si $E_{t+1}$ es "conocido" o "predeterminado", (1) se conoce como la paridad cubierta de las tasas de interés. \\\\
+    Si $E_{t+1}$ no es conocido, agentes formulan una expectativa de $E_{t+1}^e$. En este caso, (1) se vuelve: \\\\
+    \begin{align}
+        1+i_{t} = (1+i_{t}^*)\left(\dfrac{E_{t+1}^e}{E_{t}}\right)
+    \end{align}
+
+(2) es la paridad descubierta de las tasas de interés. \\
+
+    $\frac{E_{t+1}^e}{E_{t}}$ es la tasa de depreciación esperada.
+
+\paragraph*{¿Aproximación de (1)?}
+
+De (1) se tiene:
+
+\begin{align}
+    i_t &= \dfrac{(1+i_t^*) \times E_{t+1} - E_{t}}{E_{t}} \nonumber\\
+        &= \dfrac{E_{t+1}}{E_t} + i_t^*\dfrac{E_{t+1}}{E_{t}} + i_t^* - 1 \nonumber\\
+        &= i_t^* + \dfrac{E_{t+1}-E_t}{E_{t}} + i_t^*\left(\dfrac{E_{t+1}-E_t}{E_{t}}\right) \nonumber\\
+        &\text{Note que } \dfrac{E_{t+1}-E_t}{E_{t}} \approx 0 \nonumber\\
+        &\rightarrow i_t = i_t^* + \dfrac{E_{t+1}-E_t}{E_{t}}
+\end{align}
+
+(3) es la versión aproximada de (1).
+
+\subsection{Modelo de economía pequeña y abierta con dinero}
+\setcounter{align}{0}
+
+\paragraph*{¿Cómo funcionan los regímenes de tipo de cambio fijo y flexible?}
+
+\paragraph*{Suponga:}
+
+\begin{itemize}
+    \item Función de utilidad de por vida:
+    \begin{align}
+        U = \sum_{t=0}^{\infty} \beta^t \left[u_{(c_t)} + z\left(\dfrac{M_t}{P_t}\right)\right]
+    \end{align}
+    
+    Dónde: $u'_{(.)} > 0$, $u''_{(.)} < 0$, $z'_{(.)} > 0$, $z''_{(.)} < 0$
+    
+    \item Sea:
+    
+    \begin{itemize}
+        \item $B_t^P$ : Bonos privados en moneda extranjera
+        \item $y_t$ : Dotación
+        \item $P_t^*$ : Precio del bien en el extranjero.
+    \end{itemize}
+    
+\end{itemize}
+
+\paragraph*{Suponga} $P_t^* = 1 \hspace*{0.5cm} \forall t$
+
+PPP absoluta se satisface.
+
+\begin{align}
+    P_t &= E_tP_t^* \hspace*{0.5cm} \forall t \nonumber \\
+    \rightarrow P_t &= E_t
+\end{align}
+
+Note que $P_t = 1 \,\, \forall t \rightarrow \pi_t^* = 0$.
+
+Por la ecuación de Euler:
+
+\begin{align}
+    1+i_t^* &= (1+r)(1+\pi_t^*) \nonumber \\
+    \rightarrow i_t^* &= r^*
+\end{align}
+
+$r^*$ es la tasa de interés real (exógena).
+    
+
+
+% Nota interpretación: (8) Si demandas dinero en t-1 y te llevas ese dinero a t. Te puede servir para consumir. Es decir, esa demanda en t-1 te ofrece ese incremento en la utilidad. El lado izquierdo: Si demandas una unidad extra de M, eso te proporciona una utilidad extra de 
+\end{document}
+
